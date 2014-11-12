@@ -15,22 +15,14 @@ end
 
 describe file('/etc/apt/mirror.list') do 
   it { should be_owned_by 'root' }
-  it { should be_mode 644 }
-    
+  it { should be_mode 644 }           
   its(:content) { should match /set base_path     \/ci\/apt-mirror/ }
   its(:content) { should match /deb http:\/\/gb.archive.ubuntu.com\/ubuntu trusty main restricted universe multiverse/ }
-  its(:content) { should match /deb http:\/\/gb.archive.ubuntu.com\/ubuntu trusty-security main restricted universe multiverse/ }
-  its(:content) { should match /deb http:\/\/gb.archive.ubuntu.com\/ubuntu trusty-updates main restricted universe multiverse/ }
   its(:content) { should match /deb-src http:\/\/gb.archive.ubuntu.com\/ubuntu trusty main restricted universe multiverse/ }
-  its(:content) { should match /deb-src http:\/\/gb.archive.ubuntu.com\/ubuntu trusty-security main restricted universe multiverse/ }
-  its(:content) { should match /deb-src http:\/\/gb.archive.ubuntu.com\/ubuntu trusty-updates main restricted universe multiverse/ }
-  its(:content) { should match /clean http:\/\/gb.archive.ubuntu.com\/ubuntu/ }                                    
+  its(:content) { should match /deb http:\/\/gb.archive.ubuntu.com\/ubuntu trusty-updates main restricted universe multiverse/ }
+  its(:content) { should match /deb-src http:\/\/gb.archive.ubuntu.com\/ubuntu trusty-updates main restricted universe multiverse/ } 
+  its(:content) { should match /deb http:\/\/security.ubuntu.com\/ubuntu trusty-security main restricted universe multiverse/ }
+  its(:content) { should match /deb-src http:\/\/security.ubuntu.com\/ubuntu trusty-security main restricted universe multiverse/ }
+  its(:content) { should match /clean http:\/\/gb.archive.ubuntu.com\/ubuntu/ }
+  its(:content) { should match /clean http:\/\/security.ubuntu.com\/ubuntu/ }
 end
-
-
-#describe "apt-mirror::nginx" do
-#  #check nginx is running
-#  it "has a running nginx service" do
-#    expect(service("nginx")).to be_running
-#  end   
-#end 

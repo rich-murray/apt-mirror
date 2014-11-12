@@ -16,8 +16,10 @@ describe file('/etc/nginx/sites-available/apt-mirrors') do
   it { should be_mode 644 }    
   its(:content) { should match /listen  80;/ }
   its(:content) { should match /access_log \/var\/log\/nginx\/mirror-access.log/ }
-  its(:content) { should match /location \/trusty/ }
-  its(:content) { should match /alias \/ci\/apt-mirror\/mirror\/gb.archive.ubuntu.com/ }  
+  its(:content) { should match /location \/ubuntu/ }
+  its(:content) { should match /alias \/ci\/apt-mirror\/mirror\/gb.archive.ubuntu.com/ } 
+  its(:content) { should match /location \/ubuntu-security/ }
+  its(:content) { should match /alias \/ci\/apt-mirror\/mirror\/security.ubuntu.com/ }  
 end
 
 describe file('/etc/nginx/sites-enabled/apt-mirrors') do 

@@ -10,13 +10,11 @@ default['apt-mirror']['cron']['day']        = '*'
 default['apt-mirror']['cron']['weekday']    = '*'
 default['apt-mirror']['repository_locations'] = [
     'deb http://gb.archive.ubuntu.com/ubuntu trusty main restricted universe multiverse',
-    'deb http://gb.archive.ubuntu.com/ubuntu trusty-security main restricted universe multiverse',
-    'deb http://gb.archive.ubuntu.com/ubuntu trusty-updates main restricted universe multiverse',    
-    'deb-src http://gb.archive.ubuntu.com/ubuntu trusty main restricted universe multiverse',
-    'deb-src http://gb.archive.ubuntu.com/ubuntu trusty-security main restricted universe multiverse',
-    'deb-src http://gb.archive.ubuntu.com/ubuntu trusty-updates main restricted universe multiverse' ]                
-
-default['apt-mirror']['clean_locations'] = [
-    'http://gb.archive.ubuntu.com/ubuntu']
+    'deb-src http://gb.archive.ubuntu.com/ubuntu trusty main restricted universe multiverse',    
+    'deb-src http://gb.archive.ubuntu.com/ubuntu trusty-updates main restricted universe multiverse',                 
+    'deb http://gb.archive.ubuntu.com/ubuntu trusty-updates main restricted universe multiverse',
+    'deb http://security.ubuntu.com/ubuntu trusty-security main restricted universe multiverse',
+    'deb-src http://security.ubuntu.com/ubuntu trusty-security main restricted universe multiverse' ]
     
-default['apt-mirror']['nginx']['aliases'] = {'trusty' => 'gb.archive.ubuntu.com'}
+default['apt-mirror']['clean_locations'] = [
+    'http://gb.archive.ubuntu.com/ubuntu', 'http://security.ubuntu.com/ubuntu']
